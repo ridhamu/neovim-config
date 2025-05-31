@@ -1,0 +1,5 @@
+
+.DS_Store
+.netrwhist
+plugin/packer_compiled.lua
+lua/lazy-lock.json
