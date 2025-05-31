@@ -1,8 +1,7 @@
 -- import config here!
 require("config.keymaps")
-require("config.options") 
+require("config.options")
 
---- hello
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
