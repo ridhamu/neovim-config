@@ -10,6 +10,9 @@ return {
 				-- Go Linter and Formatter
 				null_ls.builtins.formatting.goimports,
 				null_ls.builtins.diagnostics.golangci_lint,
+				-- JS/TS
+				null_ls.builtins.formatting.prettier,
+				null_ls.builtins.diagnostics.eslint_d,
 			},
 		})
 
