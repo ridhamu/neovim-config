@@ -29,3 +29,25 @@ require("lazy").setup({
   install = { colorscheme = { "habamax" } },
   checker = { enabled = true },
 })
+
+
+
+-- run custom rust unit-test
+function RunCurrentRustTest()
+  -- Get the current line under the cursor
+  local line = vim.fn.getline(".")
+  -- Try to match the function name (Rust test functions)
+  local func_name = string.match(line, "fn%s+([%w_]+)%s*%(")
+  if not func_name then
+    print("No function name found on this line.")
+    return
+  end
+
+  -- Build the cargo test command
+  local cmd = "cargo test " .. func_name .. " -- --nocapture"
+  -- Open terminal and run the command
+  vim.cmd("split | terminal " .. cmd)
+end
+
+vim.keymap.set("n", "<leader>rt", RunCurrentRustTest, { desc = "Run Rust test under cursor" })
+
