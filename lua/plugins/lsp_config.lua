@@ -23,6 +23,7 @@ return {
 		"neovim/nvim-lspconfig",
 		config = function()
 			local lspconfig = require("lspconfig")
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			-- inline lsp message config
 			vim.diagnostic.config({
@@ -37,16 +38,24 @@ return {
 			})
 
 			-- lua lsp
-			lspconfig.lua_ls.setup({})
+			lspconfig.lua_ls.setup({
+				capabilities = capabilities,
+			})
 
 			-- rust_analyzer
-			lspconfig.rust_analyzer.setup({})
+			lspconfig.rust_analyzer.setup({
+				capabilities = capabilities,
+			})
 
 			--gopls
-			lspconfig.gopls.setup({})
+			lspconfig.gopls.setup({
+				capabilities = capabilities,
+			})
 
 			--ts_ls (typescript and javascript)
-			lspconfig.ts_ls.setup({})
+			lspconfig.ts_ls.setup({
+				capabilities = capabilities,
+			})
 
 			-- keymaps related to lsp
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
