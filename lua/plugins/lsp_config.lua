@@ -15,7 +15,7 @@ return {
 		},
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "rust_analyzer", "ts_ls", "gopls" },
+				ensure_installed = { "lua_ls", "rust_analyzer", "ts_ls", "gopls", "jsonls" },
 			})
 		end,
 	},
@@ -36,6 +36,11 @@ return {
 				update_in_insert = false,
 				severity_sort = true,
 			})
+
+      -- json vscode lsp
+      lspconfig.jsonls.setup({
+				capabilities = capabilities,
+      })
 
 			-- lua lsp
 			lspconfig.lua_ls.setup({
